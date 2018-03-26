@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Internet Ticket
+GenericName=Internet Ticket
+Comment=Print Internet Ticket
+Exec=fritzbox-internet-ticket
+Icon=fritzbox-internet-ticket.svg
+Terminal=false
+StartupNotify=false
+Type=Application
+Categories=Utility;

@@ -1,0 +1,27 @@
+#!/bin/bash
+# configuration file is /etc/fritzbox-internet-ticket.conf, use file permissions to restrict usage
+# set the following environment variables for configuration
+# FB config: FRITZBOX_PASSWORD, FRITZBOX_USERNAME and FRITZBOX_HOST
+# Label Printer Print Queue: FRITZBOX_PRINT_QUEUE
+# Google Form: FRITZBOX_GOOGLE_FORM_ID, FRITZBOX_GOOGLE_FORM_ENTRY_ID
+
+test -r /etc/fritzbox-internet-ticket.conf && source /etc/fritzbox-internet-ticket.conf
+
+tickets=( $(fritzbox-get-internet-tickets.py) )
+
+if test "$FRITZBOX_PRINT_QUEUE" ; then
+  echo " $tickets" | lpr -o cpi=2 -o lpi=1 -o media=w288h72 -P "$FRITZBOX_PRINT_QUEUE"
+
+  unset tickets[0]
+  tickets_urlencoded=""
+else
+  tickets_urlencoded="${ticket[0]}%0A"
+fi
+
+if test "$FRITZBOX_GOOGLE_FORM_ID" -a "$FRITZBOX_GOOGLE_FORM_ENTRY_ID" ; then
+  tickets_urlencoded+="${tickets[1]}%0A${tickets[2]}%0A${tickets[3]}%0A${tickets[4]}%0A${tickets[5]}%0A${tickets[6]}%0A${tickets[7]}%0A${tickets[8]}%0A${tickets[9]}"
+
+  form='https://docs.google.com/forms/d/e/$FRITZBOX_GOOGLE_FORM_ID/formResponse?pli=1'
+  curl -d entry.$FRITZBOX_GOOGLE_FORM_ENTRY_ID=$tickets_urlencoded \
+    -s -o /dev/null "$form"
+fi
