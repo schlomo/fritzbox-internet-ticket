@@ -21,7 +21,7 @@ fi
 if test "$FRITZBOX_GOOGLE_FORM_ID" -a "$FRITZBOX_GOOGLE_FORM_ENTRY_ID" ; then
   tickets_urlencoded+="${tickets[1]}%0A${tickets[2]}%0A${tickets[3]}%0A${tickets[4]}%0A${tickets[5]}%0A${tickets[6]}%0A${tickets[7]}%0A${tickets[8]}%0A${tickets[9]}"
 
-  form='https://docs.google.com/forms/d/e/$FRITZBOX_GOOGLE_FORM_ID/formResponse?pli=1'
+  form="https://docs.google.com/forms/d/e/$FRITZBOX_GOOGLE_FORM_ID/formResponse?pli=1"
   curl -d entry.$FRITZBOX_GOOGLE_FORM_ENTRY_ID=$tickets_urlencoded \
     -s -o /dev/null "$form"
 fi
