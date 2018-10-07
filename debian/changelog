@@ -1,3 +1,11 @@
+fritzbox-internet-ticket (3) stable; urgency=medium
+
+  * Building
+  * Packaging
+  * License
+
+ -- Schlomo Schapiro <schlomo@schapiro.org>  Sun, 07 Oct 2018 21:52:26 +0200
+
 fritzbox-internet-ticket (1) stable; urgency=medium
 
   * Initial Release
