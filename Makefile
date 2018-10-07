@@ -18,7 +18,7 @@ endif
 	git push
 
 release: commit-release deb
-	@latest_tag=$$(git describe --tags `git rev-list --tags --max-count=1`); \
+	@latest_tag=$$(git describe --tags `git rev-list --tags --max-count=1 2>/dev/null` 2>/dev/null); \
 	comparison="$$latest_tag..HEAD"; \
 	if [ -z "$$latest_tag" ]; then comparison=""; fi; \
 	changelog=$$(git log $$comparison --oneline --no-merges --reverse); \

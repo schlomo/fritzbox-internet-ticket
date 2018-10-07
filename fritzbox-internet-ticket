@@ -7,6 +7,8 @@
 
 test -r /etc/fritzbox-internet-ticket.conf && source /etc/fritzbox-internet-ticket.conf
 
+export ${!FRITZBOX_*}
+
 tickets=( $(fritzbox-get-internet-tickets.py) )
 
 if test "$FRITZBOX_PRINT_QUEUE" ; then
