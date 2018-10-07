@@ -1,3 +1,9 @@
+fritzbox-internet-ticket (5) stable; urgency=medium
+
+  * Bugfixes & Docs
+
+ -- Schlomo Schapiro <schlomo@schapiro.org>  Sun, 07 Oct 2018 22:21:53 +0200
+
 fritzbox-internet-ticket (3) stable; urgency=medium
 
   * Building
