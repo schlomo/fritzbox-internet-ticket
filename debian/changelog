@@ -1,3 +1,9 @@
+fritzbox-internet-ticket (7) stable; urgency=medium
+
+  * Add remote printing as a service
+
+ -- Schlomo Schapiro <schlomo@schapiro.org>  Thu, 01 Nov 2018 00:24:05 +0100
+
 fritzbox-internet-ticket (5) stable; urgency=medium
 
   * Bugfixes & Docs
