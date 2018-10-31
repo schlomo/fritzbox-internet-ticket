@@ -1,2 +1,7 @@
 /fritzbox-print-internet-ticket.py
 /out
+/venv
+__pycache__
+/build
+/dist
+/*spec

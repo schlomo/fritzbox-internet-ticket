@@ -1,0 +1,9 @@
+#!/bin/bash
+set -e
+
+if [ "$1" = configure ]; then
+	# apply changed service configs
+	systemctl daemon-reload
+  deb-systemd-helper enable fritzbox-internet-ticket-printing.service
+	deb-systemd-invoke restart enable fritzbox-internet-ticket-printing.service
+fi

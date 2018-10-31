@@ -5,6 +5,8 @@ The [AVM FRITZ!Box](https://avm.de/produkte/fritzbox/) (FB) routers have a featu
 
 The code in this repo helps to automate the retrieval and distribution of such Internet tickets.
 
+There is also a GCP Pub/Sub based service to print tickets from remote. This is not well documented, ask me if you want to use that.
+
 Retrieving Tickets
 ------------------
 

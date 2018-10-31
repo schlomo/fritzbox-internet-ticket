@@ -1,0 +1,4 @@
+google-cloud-pubsub
+google-cloud-core
+sh
+PyInstaller

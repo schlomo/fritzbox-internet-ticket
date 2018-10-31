@@ -26,14 +26,19 @@ release: commit-release deb
 	git pull
 	dput ppa:sschapiro/ubuntu/ppa/xenial out/$(PACKAGE)_*_source.changes
 
-install:
+install: clean
+	virtualenv --python python3 --clear build/venv
+	source build/venv/bin/activate ; pip install -r requirements.txt ; \
+		pyinstaller -F --distpath out --clean --additional-hooks-dir pyinstaller-hooks --hidden-import google.cloud.pubsub fritzbox-internet-ticket-printing-service.py
 	install -m 0755 -D -t $(DESTDIR)/usr/bin fritzbox-internet-ticket
 	install -m 0755 -D -t $(DESTDIR)/usr/bin fritzbox-get-internet-tickets.py
 	install -m 0644 -D -t $(DESTDIR)/usr/share/applications fritzbox-internet-ticket*.desktop
 	install -m 0644 -D -t $(DESTDIR)/usr/share/icons/hicolor/scalable/apps fritzbox-internet-ticket*.svg
+	install -m 0755 -D -t $(DESTDIR)/usr/bin out/fritzbox-internet-ticket-printing-service
+	install -m 0644 -D -t $(DESTDIR)/lib/systemd/system fritzbox-internet-ticket-printing.service
 
 clean:
-	rm -Rf debian/$(PACKAGE)* debian/files out/*
+	rm -Rf debian/$(PACKAGE)* debian/files out/* build/*
 
 deb: clean
 ifneq ($(MAKECMDGOALS), release)

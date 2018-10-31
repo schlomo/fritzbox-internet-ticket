@@ -1,0 +1,11 @@
+[Unit]
+Description=Fritzbox Internet Ticket Printing
+ConditionPathExists=/etc/fritzbox-internet-ticket.conf
+
+[Service]
+EnvironmentFile=/etc/fritzbox-internet-ticket.conf
+ExecStart=/usr/bin/fritzbox-internet-ticket-printing-service
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

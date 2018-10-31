@@ -7,8 +7,8 @@ Homepage: https://github.com/schlomo/fritzbox-internet-ticket
 Build-Depends: debhelper (>= 9), git-buildpackage
 
 Package: fritzbox-internet-ticket
-Architecture: all
-Depends: ${misc:Depends}, python3, curl
+Architecture: amd64
+Depends: ${misc:Depends}, ${shlibs:Depends}, python3, curl
 Description: Retrieve internet tickets from Fritzbox and print on a Zebra printer
  What it does:
   * Retrieve 10 internet tickets from a Fritzbox
