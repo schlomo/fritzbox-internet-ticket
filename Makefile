@@ -46,7 +46,7 @@ endif
 	debuild $(DEBUILD_ARGS) -i -b --lintian-opts --profile debian
 	debuild $(DEBUILD_ARGS) -i -S --lintian-opts --profile debian
 	mkdir -p out
-	mv ../$(PACKAGE)*.{xz,dsc,deb,build,changes} out/
+	mv ../$(PACKAGE)*.{xz,dsc,deb,build,changes,buildinfo} out/
 	dpkg -I out/*.deb
 	dpkg -c out/*.deb
 
