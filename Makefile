@@ -26,7 +26,7 @@ release: commit-release deb
 	changelog=$$(git log $$comparison --oneline --no-merges --reverse); \
 	github-release schlomo/$(PACKAGE) v$(VERSION) "$$(git rev-parse --abbrev-ref HEAD)" "**Changelog**<br/>$$changelog" 'out/*.deb'; \
 	git pull
-	dput ppa:sschapiro/ubuntu/ppa/xenial out/$(PACKAGE)_*_source.changes
+	dput ppa:sschapiro/ubuntu/ppa/bionic out/$(PACKAGE)_*_source.changes
 
 install: build
 	install -m 0755 -D -t $(DESTDIR)/usr/bin fritzbox-internet-ticket
