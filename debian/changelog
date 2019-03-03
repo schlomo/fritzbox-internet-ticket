@@ -1,3 +1,10 @@
+fritzbox-internet-ticket (10) stable; urgency=medium
+
+  * Add local test script
+  * switch to bionic
+
+ -- Schlomo Schapiro <schlomo@schapiro.org>  Sun, 03 Mar 2019 15:59:18 +0100
+
 fritzbox-internet-ticket (7) stable; urgency=medium
 
   * Add remote printing as a service
