@@ -1,3 +1,9 @@
+fritzbox-internet-ticket (12) stable; urgency=medium
+
+  * Support newer Debian build environment
+
+ -- Schlomo Schapiro <schlomo@schapiro.org>  Sun, 03 Mar 2019 16:04:57 +0100
+
 fritzbox-internet-ticket (10) stable; urgency=medium
 
   * Add local test script
