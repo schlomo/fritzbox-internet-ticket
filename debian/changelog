@@ -1,3 +1,9 @@
+fritzbox-internet-ticket (14) stable; urgency=medium
+
+  * exclude build junk from packages
+
+ -- Schlomo Schapiro <schlomo@schapiro.org>  Sun, 03 Mar 2019 16:23:50 +0100
+
 fritzbox-internet-ticket (12) stable; urgency=medium
 
   * Support newer Debian build environment
