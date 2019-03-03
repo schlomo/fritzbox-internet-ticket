@@ -37,14 +37,14 @@ install: build
 	install -m 0644 -D -t $(DESTDIR)/lib/systemd/system fritzbox-internet-ticket-printing.service
 
 clean:
-	rm -Rf debian/$(PACKAGE)* debian/files out/* build/*
+	rm -Rf debian/$(PACKAGE)* debian/files out/* build/* dist/*
 
 deb: clean
 ifneq ($(MAKECMDGOALS), release)
 	$(eval DEBUILD_ARGS := -us -uc)
 endif
-	debuild $(DEBUILD_ARGS) -i -b --lintian-opts --profile debian
-	debuild $(DEBUILD_ARGS) -i -S --lintian-opts --profile debian
+	debuild $(DEBUILD_ARGS) -i -I -Ivenv -I__pycache__ -b --lintian-opts --profile debian
+	debuild $(DEBUILD_ARGS) -i -I -Ivenv -I__pycache__ -S --lintian-opts --profile debian
 	mkdir -p out
 	mv ../$(PACKAGE)*.{xz,dsc,deb,build,changes,buildinfo} out/
 	dpkg -I out/*.deb
