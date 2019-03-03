@@ -7,8 +7,10 @@ GIT_STATUS := $(shell git status --porcelain)
 
 all: build
 
-build:
-	@echo No build required
+build: clean
+	virtualenv --python python3 --clear build/venv
+	source build/venv/bin/activate ; pip install -r requirements.txt ; \
+		pyinstaller -F --distpath out --clean --additional-hooks-dir pyinstaller-hooks --hidden-import google.cloud.pubsub fritzbox-internet-ticket-printing-service.py
 
 commit-release:
 ifneq ($(GIT_STATUS),)
@@ -26,10 +28,7 @@ release: commit-release deb
 	git pull
 	dput ppa:sschapiro/ubuntu/ppa/xenial out/$(PACKAGE)_*_source.changes
 
-install: clean
-	virtualenv --python python3 --clear build/venv
-	source build/venv/bin/activate ; pip install -r requirements.txt ; \
-		pyinstaller -F --distpath out --clean --additional-hooks-dir pyinstaller-hooks --hidden-import google.cloud.pubsub fritzbox-internet-ticket-printing-service.py
+install: build
 	install -m 0755 -D -t $(DESTDIR)/usr/bin fritzbox-internet-ticket
 	install -m 0755 -D -t $(DESTDIR)/usr/bin fritzbox-get-internet-tickets.py
 	install -m 0644 -D -t $(DESTDIR)/usr/share/applications fritzbox-internet-ticket*.desktop

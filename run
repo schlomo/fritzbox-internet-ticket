@@ -1,0 +1,3 @@
+#!/bin/bash
+read -d "\n" -a vars </etc/fritzbox-internet-ticket.conf
+env -i PATH=$PATH ${vars[@]} python fritzbox-internet-ticket-printing-service.py

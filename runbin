@@ -1,0 +1,4 @@
+#!/bin/bash
+set -x
+read -d "\n" -a vars </etc/fritzbox-internet-ticket.conf
+env -i PATH=$PATH ${vars[@]} out/fritzbox-internet-ticket-printing-service "$@"
