@@ -19,7 +19,7 @@ from google.cloud import pubsub_v1
 def callback(message):
     print('Received message: {}'.format(message.data))
     message.ack()
-    sh.fritzbox_internet_ticket()
+    sh.fritzbox_internet_ticket(_fg=True)
 
 subscriber = pubsub_v1.SubscriberClient()
 
