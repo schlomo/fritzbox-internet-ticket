@@ -5,6 +5,7 @@
 # Label Printer Print Queue: FRITZBOX_PRINT_QUEUE
 # Google Form: FRITZBOX_GOOGLE_FORM_ID, FRITZBOX_GOOGLE_FORM_ENTRY_ID
 
+
 test -r /etc/fritzbox-internet-ticket.conf && source /etc/fritzbox-internet-ticket.conf
 
 export ${!FRITZBOX_*}
