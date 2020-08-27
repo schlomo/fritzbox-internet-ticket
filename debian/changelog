@@ -1,3 +1,10 @@
+fritzbox-internet-ticket (24) stable; urgency=medium
+
+  * Support changed web UI on Fritz OS 7.20 fixes #1
+  * update docs
+
+ -- Schlomo Schapiro <schlomo@schapiro.org>  Thu, 27 Aug 2020 22:28:03 +0200
+
 fritzbox-internet-ticket (21) stable; urgency=medium
 
   * dummy
