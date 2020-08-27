@@ -7,6 +7,8 @@ The code in this repo helps to automate the retrieval and distribution of such I
 
 There is also a GCP Pub/Sub based service to print tickets from remote. This is not well documented, ask me if you want to use that.
 
+As of Version 22 (2020-08-27) this works with Fritz!OS 7.20 and has not been tested if it still works with older versions. Feedback is welcome.
+
 Retrieving Tickets
 ------------------
 
