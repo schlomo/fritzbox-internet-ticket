@@ -20,7 +20,6 @@ class FritzBoxInternetTickets(object):
 
     def __init__(self, host='fritz.box', user='', password=''):
         self.host = 'http://' + host
-        self.ticketurl = '{}/internet/pp_ticket.lua'.format(self.host)
         self.password = password
         self.user = user
         self.sid = self._get_sid()
@@ -56,9 +55,14 @@ class FritzBoxInternetTickets(object):
         return sid
 
     def get_internet_tickets(self):
-        response = requests.get(self.ticketurl + "?sid=%s" % self.sid)
+        data_url = f"{self.host}/data.lua"
+        response = requests.post(data_url, {
+            "sid": self.sid,
+            "lang": "de",
+            "page": "kidPro"
+        })
         logging.debug(response.text)
-        tickets = re.findall(r'\["id"\] = "(\d+)"', response.text)
+        tickets = re.findall(r'<td>(\d+)</td>', response.text)
         logging.debug(tickets)
         return tickets
 
