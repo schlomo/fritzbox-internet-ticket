@@ -37,3 +37,8 @@ FRITZBOX_GOOGLE_FORM_ENTRY_ID=1598434206
 ```
 
 Take care to protect this file with file system permissions if you are on a multi user system.
+
+Installation
+------------
+
+`make install` is for manual installs. `make deb` will create a Debian package which is also available from https://launchpad.net/~sschapiro/+archive/ubuntu/ppa which you can add to your system.
