@@ -62,7 +62,7 @@ class FritzBoxInternetTickets(object):
             "page": "kidPro"
         })
         logging.debug(response.text)
-        tickets = re.findall(r'<td>(\d+)</td>', response.text)
+        tickets = re.findall(r'<td class="" id="Ticket-\d+">(\d+)<\/td>', response.text)
         logging.debug(tickets)
         return tickets
 
