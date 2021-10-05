@@ -8,7 +8,7 @@ GIT_STATUS := $(shell git status --porcelain)
 all: build
 
 build: clean
-	virtualenv --python python3 --clear build/venv
+	python3 -m venv --clear build/venv
 	source build/venv/bin/activate ; pip install -r requirements.txt ; \
 		pyinstaller -F --distpath out --clean --additional-hooks-dir pyinstaller-hooks --hidden-import google.cloud.pubsub fritzbox-internet-ticket-printing-service.py
 
