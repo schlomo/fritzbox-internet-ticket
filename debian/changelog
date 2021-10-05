@@ -1,3 +1,10 @@
+fritzbox-internet-ticket (27) stable; urgency=medium
+
+  * Link to PPA & explain installation
+  * Amend on the regex for ticket extraction
+
+ -- Schlomo Schapiro <schlomo@schapiro.org>  Tue, 05 Oct 2021 21:16:02 +0200
+
 fritzbox-internet-ticket (24) stable; urgency=medium
 
   * Support changed web UI on Fritz OS 7.20 fixes #1
